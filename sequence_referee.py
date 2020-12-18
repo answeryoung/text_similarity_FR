@@ -1,9 +1,23 @@
+#! /usr/bin/env python
+
 from difflib import SequenceMatcher
 from typing import List
 from _mappings import contractions
 
 
 class sequence_referee(SequenceMatcher):
+    r"""
+    sequence_referee is a class extended from SequenceMatcher.
+    The derived class has a method score(), which behaves similarly
+    than ratio() of the base class.
+
+    For the purpose matching sequences of words, dealing with contractions
+    become the added feature of this class. As we wish to expand all 
+    contractions to the expanded form and the mapping is one-to-many,
+    we first look locate a contraction in one sequence then check if any
+    of the expanded form exist in the other sequence.
+    """
+
     def score(self) -> float:
         codes = self.get_opcodes()
 
@@ -58,7 +72,7 @@ class sequence_referee(SequenceMatcher):
             self._lb += extra_len_b
 
     
-    def check_contraction_unmatched(self, block: List[str]):
+    def check_contraction_unmatched(self, block: List[str]) -> int:
         for word in block:
             if "'" in word and word in contractions:
                 equiv_phrase = contractions[word][0]
@@ -78,8 +92,3 @@ class sequence_referee(SequenceMatcher):
                     return len(expanded)
         
         return 0
-
-
-
-
-

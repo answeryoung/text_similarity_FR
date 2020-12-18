@@ -1,9 +1,10 @@
 #! /usr/bin/env python
 
-'''
-This file contains some data helping interpertation of the English language.
+r"""
+This file contains data helping interpertation of the English language.
 
-'''
+"""
+
 __all__ = ['title_prefix', 'contractions', 'stopwords']
 
 # Only the prefixes that end with a period is listed here.

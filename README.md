@@ -20,7 +20,7 @@ Furthermore, if the numbers of sentences are not the same or the similarity scor
 
 ## Demo
 
-https://youtu.be/v77pNlvfD3k
+<https://youtu.be/v77pNlvfD3k>
 
 ## Set-up and run
 
