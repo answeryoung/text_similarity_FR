@@ -12,7 +12,7 @@ This exercise is solved using Python, Flask, and Docker.
 
 Extending from class `difflib.SequenceMatcher`, I define a method `score()` that returns a `score` for any given pair of sentences ( `List[str]` ).
 
-To calculate the score, I first get the matching code using the method `get_opcodes()`, which belongs to the base class. Then I attempt to expand all contracted words to the full length, i.e., "We've been to the moon!" -> "We have been to the moon!".  Last, I use the score is calculated as the ratio between the number of matched words and the geometric mean of the numbers of words in the given sentences.
+To calculate the score, I first get the matching code using the method `get_opcodes()`, which belongs to the base class. Then I attempt to expand all contracted words to the full length, i.e., "We've been to the moon!" -> "We have been to the moon!".  Last, the score is calculated as the ratio between the number of matched words and the geometric mean of the numbers of words in the given sentences.
 
 Moreover, the input texts are broken into a list of sentences, which are lists of words, i.e., `List[List[str]]`, such that methods in `SequenceMatcher` can do their work.
 
@@ -20,7 +20,7 @@ Furthermore, if the numbers of sentences are not the same or the similarity scor
 
 ## Demo
 
-Yet to be made.
+https://youtu.be/v77pNlvfD3k
 
 ## Set-up and run
 
@@ -37,7 +37,8 @@ Docker needs to be installed first.
 ```repo
 ├── README.md     
 |
-├── app.py                          defines the Flask app, also contains the |                                   driver code
+├── app.py                          defines the Flask app, also contains the 
+|                                   driver code
 |
 ├── sequence_referee.py             a class extended from extended from
 |                                   the class difflib.SequenceMatcher
