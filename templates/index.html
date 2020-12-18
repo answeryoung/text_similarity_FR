@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Da Yang - Fetch Rewards Coding Exercise</title>
+    </head>
+
+    <body>
+        <h1 style="margin-left: 4em"> Text Similarity</h1>
+        <form style="margin-left: 2em" 
+                action = "{{ url_for('result') }}" method = "POST">
+            <p style="padding: 0 0 0.25em 0">
+                Text 1:  <input type = "text" name = "a" size = "80" /></p>
+            <p style="padding: 0 0 0.25em 0">
+                Text 2:  <input type = "text" name = "b" size = "80" /></p>
+            <p style="margin-left: 1.8em; font-size:18px"> 
+                The similarity of these two texts will be given a score: 0.00 ~ 1.00. &ensp;   
+                <input type = "submit" value = "Submit" /></p>
+        </form>
+    </body>
+</html>

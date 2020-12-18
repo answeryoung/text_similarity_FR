@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Da Yang - Fetch Rewards Coding Exercise</title>
+    </head>
+
+    <body>
+        <h1 style="margin-left: 4em"> Text Similarity: {{ result["score"] }} </h1>
+        
+        <h3 style="margin-left: 2em"> Text 1: </h3>
+        <ul  style="font-size:16px">
+            {% for sentence in result["a"] %}
+                <th> {{ sentence }} </th>
+                <br>
+            {% endfor %}
+        </ul>
+        
+        <h3 style="margin-left: 2em"> Text 2: </h3>
+        <ul style="font-size:16px">
+            {% for sentence in result["b"] %}
+                <th> {{ sentence }} </th>
+                <br>
+            {% endfor %}
+        </ul>
+
+        <h3 = style="margin-left: 2em"> Dissimilar Tests! Common topics are: </h3>
+        <ul style="font-size:16px">
+            {% for topic in result["topics"] %} 
+                <th style="margin-left: 1.8em; float: left; width: 10%;"> {{ topic }} &nbsp; </li>
+                </tr>
+            {% endfor %}
+        </ul>
+    
+    </body>
+</html>
+
