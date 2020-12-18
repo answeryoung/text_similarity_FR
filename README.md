@@ -20,7 +20,7 @@ Furthermore, if the numbers of sentences are not the same or the similarity scor
 
 ## Demo
 
-Yet to be made.
+https://youtu.be/v77pNlvfD3k
 
 ## Set-up and run
 
@@ -37,7 +37,8 @@ Docker needs to be installed first.
 ```repo
 ├── README.md     
 |
-├── app.py                          defines the Flask app, also contains the |                                   driver code
+├── app.py                          defines the Flask app, also contains the 
+|                                   driver code
 |
 ├── sequence_referee.py             a class extended from extended from
 |                                   the class difflib.SequenceMatcher
