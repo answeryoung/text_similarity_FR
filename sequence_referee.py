@@ -38,8 +38,8 @@ class sequence_referee(SequenceMatcher):
     def increment_len_matches(self, words: List[str]) -> None:
         matching_block_size = len(words)
         for word in words:
-            if "'" in word and word in contractions:
-                equiv_phrase = contractions[word][0]
+            if "'" in word and word.lower() in contractions:
+                equiv_phrase = contractions[word.lower()][0]
                 extra_len = len(equiv_phrase.split(" ")) - 1
                 matching_block_size += extra_len
                 self._la += extra_len
@@ -53,16 +53,14 @@ class sequence_referee(SequenceMatcher):
         if len(block_b) >= len(block_a):
             match = self.check_contraction_matches(block_a, block_b)
             if match > 0:
-                extra_len = match - 1
-                self._len_matches += extra_len
-                self._la += extra_len
+                self._len_matches += match
+                self._la += match - 1
 
         else:
             match = self.check_contraction_matches(block_b, block_a)
             if match > 0:
-                extra_len = match - 1
-                self._len_matches += extra_len
-                self._lb += extra_len
+                self._len_matches += match
+                self._lb += match - 1
 
         if match == 0:
             extra_len_a = self.check_contraction_unmatched(block_a)
@@ -73,22 +71,24 @@ class sequence_referee(SequenceMatcher):
 
     
     def check_contraction_unmatched(self, block: List[str]) -> int:
+        extra_len = 0
         for word in block:
-            if "'" in word and word in contractions:
-                equiv_phrase = contractions[word][0]
-                return len(equiv_phrase.split(" ")) - 1
+            if "'" in word and word.lower() in contractions:
+                equiv_phrase = contractions[word.lower()][0]
+                extra_len += len(equiv_phrase.split(" ")) - 1
                 
-        return 0
+        return extra_len
  
 
     def check_contraction_matches(self, short_block: List[str], long_block: List[str]) -> int:
+        long_block_lower = [word.lower() for word in long_block]
         for word in short_block:
-            if "'" not in word or word not in contractions:
+            if "'" not in word or word.lower() not in contractions:
                 continue
           
-            for phrase in contractions[word]:
+            for phrase in contractions[word.lower()]:
                 expanded = phrase.split(" ")
-                if all(e in long_block for e in expanded):
+                if all(e in long_block_lower for e in expanded):
                     return len(expanded)
         
         return 0
